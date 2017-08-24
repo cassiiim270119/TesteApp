@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cassianomoura.testeapp.AgendaAcompanhamentoActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtTituloAA"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.21"
+        android:text="Agenda de acompanhamento"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <Button
+        android:id="@+id/btnAARemedios"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.21"
+        android:backgroundTint="#D50000"
+        android:text="Remédios"
+        android:textAlignment="center"
+        android:textColor="#e8d800"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/btnAACompromissos"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.21"
+        android:backgroundTint="#0D47A1"
+        android:text="Compromissos"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="40dp"/>
+
+    <Button
+        android:id="@+id/btnAAExercicios"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.21"
+        android:backgroundTint="#004D40"
+        android:text="Exercícios"
+        android:textAlignment="center"
+        android:textColor="#A7FFEB"
+        android:textSize="40dp" />
+</LinearLayout>

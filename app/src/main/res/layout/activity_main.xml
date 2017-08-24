@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.21"
+        android:text="Plataforma Visual"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="#000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_EasyCall"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.21"
+        android:backgroundTint="#00C853"
+        android:foreground="@android:drawable/ic_menu_call"
+        android:foregroundGravity="center"
+        android:foregroundTintMode="screen" />
+
+    <Button
+        android:id="@+id/btn_IMC"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.21"
+        android:backgroundTint="#D50000"
+        android:foreground="@android:drawable/ic_menu_today"
+        android:foregroundGravity="center"
+        android:foregroundTintMode="screen" />
+
+    <Button
+        android:id="@+id/btn_DuhuMath"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.21"
+        android:backgroundTint="#795548"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        android:foreground="@android:drawable/ic_menu_edit"
+        android:foregroundGravity="center" />
+</LinearLayout>

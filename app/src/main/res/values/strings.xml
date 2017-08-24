@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Plataforma Visual</string>
+    <!-- Falas dos botões(tela inicial)-->
+    <string name="btnEasyCallSpeak">Abrir easy call para fazer chamadas.</string>
+    <string name="btnAgendaAcompanhamentoSpeak">Abrir agenda de acompanhamento.</string>
+    <string name="btnJogosSpeak">Abrir a sessão de jogos.</string>
+    <!-- Falas de recepção de cada tela secundária-->
+    <string name="easyCallStartSpeak">Digite o número para realizar sua chamada.</string>
+    <string name="agendaAcompanhamentoStartSpeak">Aberta a agenda de acompanhamento.</string>
+    <string name="jogosStartSpeak">Aberta a sessão de jogos.</string>
+    <!-- Falas da tela "Easy Call"-->
+    <string name="btnFazerChamadaOnClick">Chamar.</string>
+    <string name="btnFazerChamadaOnLongClick">Chamando.</string>
+    <string name="btnLimparOnClick">Limpar.</string>
+    <string name="btnLimparOnLongClick">Número limpo. Digite novamente para fazer chamada.</string>
+    <!-- Falas da tela "Agenda de acompanhamento"-->
+    <string name="btnCallAARemedios">Abrir agenda de remédios.</string>
+    <string name="btnCallAACompromissos">Abrir agenda de compromissos.</string>
+    <string name="btnCallAAExercicios">Abrir agenda de exercícios.</string>
+    <!-- Falas de valores-->
+    <string name="speakZero">Zero.</string>
+    <string name="speakOne">Um.</string>
+    <string name="speakTwo">Dois.</string>
+    <string name="speakThree">Três.</string>
+    <string name="speakFour">Quatro.</string>
+    <string name="speakFive">Cinco.</string>
+    <string name="speakSix">Seis.</string>
+    <string name="speakSeven">Sete.</string>
+    <string name="speakEight">Oito.</string>
+    <string name="speakNine">Nove.</string>
+    <string name="speakAsterisc">Asterisco.</string>
+    <string name="speakSquare">Quadrado.</string>
+</resources>
