@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".EasyCallActivity" />
-        <activity android:name=".AgendaAcompanhamentoActivity"></activity>
+        <activity android:name=".AgendaAcompanhamentoActivity" />
+        <activity android:name=".AARemediosActivity"></activity>
     </application>
 
 </manifest>
