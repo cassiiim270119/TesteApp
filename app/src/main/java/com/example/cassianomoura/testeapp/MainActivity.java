@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
@@ -11,9 +13,18 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import java.util.Locale;
 
+import static android.widget.Toast.*;
+import static android.widget.Toast.makeText;
+
 public class MainActivity extends AppCompatActivity {
+
+    private CriaBanco criaBanco;
+    private SQLiteDatabase conexao;
+    Context context = getApplicationContext();
 
     TextToSpeech tts;
     @Override
@@ -70,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        testarConexao();
     }
     public void startEasyCall(){
         tts.speak(getString(R.string.easyCallStartSpeak), TextToSpeech.QUEUE_FLUSH, null);
@@ -89,5 +101,15 @@ public class MainActivity extends AppCompatActivity {
             int vibrator = 100 * intensity;
                 vibe.vibrate(vibrator);
         }
+    }
+    public void testarConexao(){
+        try{
+            criaBanco = new CriaBanco(this);
+            conexao = criaBanco.getWritableDatabase();
+            Toast.makeText(context, "Conxão criada com sucesso!", LENGTH_LONG).show();
+        }catch (SQLException e){
+            Toast.makeText(context, e.getMessage(), LENGTH_LONG).show();
+        }
+
     }
 }
