@@ -1,4 +1,4 @@
-package com.example.cassianomoura.testeapp;
+package com.example.cassianomoura.testeapp.view;
 
 import android.Manifest;
 import android.content.Context;
@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.cassianomoura.testeapp.R;
 
 import java.util.Locale;
 

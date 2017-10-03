@@ -1,7 +1,9 @@
-package com.example.cassianomoura.testeapp;
+package com.example.cassianomoura.testeapp.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.cassianomoura.testeapp.R;
 
 public class AARemediosActivity extends AppCompatActivity {
 

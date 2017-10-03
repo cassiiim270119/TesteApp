@@ -1,4 +1,4 @@
-package com.example.cassianomoura.testeapp;
+package com.example.cassianomoura.testeapp.model;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +11,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class CriaBanco extends SQLiteOpenHelper {
     private static final String NOME_BANCO = "banco.db";
     private static final String TABELAREMEDIOS = "remedios";
+    private static final String TABELACOMPROMISSOS = "compromissos";
+    private static final String TABELAEXERCICIOS = "exercicios";
     private static final String ID = "id";
     private static final String TITULO = "titulo";
     private static final String HORARIO = "horario";
@@ -22,12 +24,24 @@ public class CriaBanco extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE "+TABELAREMEDIOS+" ( "
+        String sqlremedios = "CREATE TABLE "+TABELAREMEDIOS+" ( "
                 + ID + " integer primary key autoincrement, "
                 + TITULO + " text, "
                 + HORARIO + " time "
                 +" );";
-        db.execSQL(sql);
+        db.execSQL(sqlremedios);
+        String sqlcompromissos = "CREATE TABLE "+TABELACOMPROMISSOS+" ( "
+                + ID + " integer primary key autoincrement, "
+                + TITULO + " text, "
+                + HORARIO + " time "
+                +" );";
+        db.execSQL(sqlcompromissos);
+        String sqlexercicios = "CREATE TABLE "+TABELAEXERCICIOS+" ( "
+                + ID + " integer primary key autoincrement, "
+                + TITULO + " text, "
+                + HORARIO + " time "
+                +" );";
+        db.execSQL(sqlexercicios);
     }
 
     @Override

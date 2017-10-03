@@ -1,4 +1,4 @@
-package com.example.cassianomoura.testeapp;
+package com.example.cassianomoura.testeapp.view;
 
 import android.Manifest;
 import android.content.Context;
@@ -14,6 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.cassianomoura.testeapp.R;
+import com.example.cassianomoura.testeapp.model.CriaBanco;
+
 import java.util.Locale;
 
 import static android.widget.Toast.LENGTH_LONG;
@@ -23,13 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
     private CriaBanco criaBanco;
     private SQLiteDatabase conexao;
-    Context context = getApplicationContext();
-
+    private static Context context;
     TextToSpeech tts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context = getApplicationContext();
 
         Button btnEasyCall = (Button) findViewById(R.id.btn_EasyCall);
         Button btnIMC = (Button) findViewById(R.id.btn_IMC);
