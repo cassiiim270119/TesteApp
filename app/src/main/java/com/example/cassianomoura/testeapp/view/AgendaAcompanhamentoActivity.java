@@ -69,7 +69,7 @@ public class AgendaAcompanhamentoActivity extends AppCompatActivity {
         btnAARemedios.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                //startAARemedios();
+                startAARemedios();
                 return true;
             }
         });
@@ -82,11 +82,11 @@ public class AgendaAcompanhamentoActivity extends AppCompatActivity {
             }
         });
     }
-    /*public void startEasyCall(){
-        tts.speak("Digite o número para realizar sua chamada.", TextToSpeech.QUEUE_FLUSH, null);
-        Intent intent = new Intent(this, EasyCallActivity.class);
+    public void startAARemedios(){
+        tts.speak(getString(R.string.aaremdiosStartSpeak), TextToSpeech.QUEUE_FLUSH, null);
+        Intent intent = new Intent(this, AARemediosActivity.class);
         startActivity(intent);
-    }*/
+    }
 
     public void vibrate(int intensity){
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.VIBRATE) == PackageManager.PERMISSION_GRANTED) {

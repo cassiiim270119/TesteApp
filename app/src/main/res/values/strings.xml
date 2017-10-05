@@ -9,6 +9,8 @@
     <string name="easyCallStartSpeak">Digite o número para realizar sua chamada.</string>
     <string name="agendaAcompanhamentoStartSpeak">Aberta a agenda de acompanhamento.</string>
     <string name="jogosStartSpeak">Aberta a sessão de jogos.</string>
+    <!-- Falas de recepção de cada tela terciária-->
+    <string name="aaremdiosStartSpeak">Aberta a agenda de remédios.</string>
     <!-- Falas da tela "Easy Call"-->
     <string name="btnFazerChamadaOnClick">Chamar.</string>
     <string name="btnFazerChamadaOnLongClick">Chamando.</string>

@@ -25,16 +25,11 @@ import static android.widget.Toast.LENGTH_LONG;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CriaBanco criaBanco;
-    private SQLiteDatabase conexao;
-    private static Context context;
     TextToSpeech tts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        context = getApplicationContext();
 
         Button btnEasyCall = (Button) findViewById(R.id.btn_EasyCall);
         Button btnIMC = (Button) findViewById(R.id.btn_IMC);
@@ -85,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        testarConexao();
     }
     public void startEasyCall(){
         tts.speak(getString(R.string.easyCallStartSpeak), TextToSpeech.QUEUE_FLUSH, null);
@@ -106,14 +100,5 @@ public class MainActivity extends AppCompatActivity {
                 vibe.vibrate(vibrator);
         }
     }
-    public void testarConexao(){
-        try{
-            criaBanco = new CriaBanco(this);
-            conexao = criaBanco.getWritableDatabase();
-            Toast.makeText(context, "Conxão criada com sucesso!", LENGTH_LONG).show();
-        }catch (SQLException e){
-            Toast.makeText(context, e.getMessage(), LENGTH_LONG).show();
-        }
 
-    }
 }

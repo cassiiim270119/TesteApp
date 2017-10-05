@@ -17,6 +17,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
     <ListView
+        android:id="@+id/listViewRemdios"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/txtTituloAARemedios"
