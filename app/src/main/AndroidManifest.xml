@@ -24,8 +24,9 @@
         <activity android:name=".view.EasyCallActivity" />
         <activity android:name=".view.AgendaAcompanhamentoActivity" />
         <activity android:name=".view.AARemediosActivity" />
-        <activity android:name=".view.AACompromissosActivity" />
-        <activity android:name=".view.AAExerciciosActivity"></activity>
+        <activity android:name=".view.AADiarioActivity" />
+        <activity android:name=".view.AAExerciciosActivity" />
+        <activity android:name=".view.GravarAtividadeActivity"></activity>
     </application>
 
 </manifest>

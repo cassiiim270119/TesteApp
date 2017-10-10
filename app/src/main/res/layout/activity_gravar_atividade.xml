@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.cassianomoura.testeapp.view.GravarAtividadeActivity"
+    android:weightSum="1">
+
+
+    <TextView
+        android:id="@+id/txtTituloGravarAtividade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar       atividade"
+        android:textAlignment="center"
+        android:layout_marginBottom="40dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <Button
+        android:id="@+id/btnGravarAtividadeTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listViewDiario"
+        android:backgroundTint="#000"
+        android:onClick="speechTitulo"
+        android:text="Fale a atividade"
+        android:textSize="40dp"
+        android:textColor="#fff"
+        android:layout_weight="0.21"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGravarAtividadeHorario"
+        android:onClick="speechHorario"
+        android:layout_below="@+id/listViewDiario"
+        android:text="Fale o horário"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:textColor="#000"
+        android:backgroundTint="#fff"
+        android:layout_weight="0.21"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnConfirmarAtividade"
+        android:onClick="speechConfirmIncludeDiario"
+        android:layout_below="@+id/listViewDiario"
+        android:text="Confirmar"
+        android:textAlignment="center"
+        android:backgroundTint="#00C853"
+        android:layout_weight="0.21"
+        android:layout_marginBottom="20dp"
+        android:textSize="40dp"/>
+</LinearLayout>

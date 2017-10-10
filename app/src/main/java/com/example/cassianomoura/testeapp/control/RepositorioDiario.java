@@ -10,14 +10,14 @@ import android.widget.ArrayAdapter;
  * Created by Cassiano Moura on 05/10/2017.
  */
 
-public class RepositorioCompromissos {
+public class RepositorioDiario {
     private SQLiteDatabase conexao;
 
-    public RepositorioCompromissos(SQLiteDatabase conexao){
+    public RepositorioDiario(SQLiteDatabase conexao){
         this.conexao = conexao;
     }
 
-    public void inserirCompromissosTeste(){
+    public void inserirAtividadeTeste(){
         ContentValues contentValues = new ContentValues();
         contentValues.put("titulo","Reunião escolar do júnior");
         contentValues.put("horario", "19:00");
@@ -25,31 +25,34 @@ public class RepositorioCompromissos {
 
     }
 
-    public long insertCompromisso(String titulo, String horario){
+    public long insertAtividade(String titulo, String horario){
+        Cursor cursor = conexao.rawQuery("SELECT * FROM atividades", null);
         ContentValues contentValues = new ContentValues();
+        contentValues.put("id",cursor.getCount()+1);
         contentValues.put("titulo",titulo);
         contentValues.put("horario", horario);
-        return conexao.insertOrThrow("compromissos", null, contentValues);
+        return conexao.insertOrThrow("atividades", null, contentValues);
     }
 
-    public void excluirCompromissoTeste(int codigo){
-        /*String[] parametros = new String[1];
+    public void excluirAtividade(int codigo){
+        String[] parametros = new String[1];
         parametros[0] = String.valueOf(codigo);
-        conexao.delete("compromissos", "id = ?", parametros);*/
-        conexao.delete("compromissos", null, null);
+        conexao.delete("atividades", "id = ?", parametros);
+        //conexao.delete("compromissos", null, null);
     }
 
-    public ArrayAdapter<String> buscaCompromissos(Context context){
-        ArrayAdapter<String> arrayAdapterCompromissos = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1);
-        Cursor cursor = conexao.rawQuery("SELECT * FROM compromissos", null);
+    public ArrayAdapter<String> buscaDiario(Context context){
+        ArrayAdapter<String> arrayAdapterAtividades = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1);
+        Cursor cursor = conexao.rawQuery("SELECT * FROM atividades", null);
         if (cursor.getCount() > 0){
             cursor.moveToFirst();
             do {
                 String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
                 String horario = cursor.getString(cursor.getColumnIndexOrThrow("horario"));
-                arrayAdapterCompromissos.add(titulo+" - "+horario);
+                String id = cursor.getString(cursor.getColumnIndexOrThrow("id"));
+                arrayAdapterAtividades.add(id + ": "+titulo+" - "+horario);
             }while (cursor.moveToNext());
         }
-        return arrayAdapterCompromissos;
+        return arrayAdapterAtividades;
     }
 }

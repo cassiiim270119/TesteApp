@@ -11,7 +11,7 @@
     <string name="jogosStartSpeak">Aberta a sessão de jogos.</string>
     <!-- Falas de recepção de cada tela terciária-->
     <string name="aaremediosStartSpeak">Aberta a agenda de remédios.</string>
-    <string name="aacompromissosStartSpeak">Aberta a agenda de compromissos.</string>
+    <string name="aadiarioStartSpeak">Aberto o diário de atividades.</string>
     <string name="aaexerciciosStartSpeak">Aberta a agenda de exercícios.</string>
     <!-- Falas da tela "Easy Call"-->
     <string name="btnFazerChamadaOnClick">Chamar.</string>
@@ -20,19 +20,19 @@
     <string name="btnLimparOnLongClick">Número limpo. Digite novamente para fazer chamada.</string>
     <!-- Falas da tela "Agenda de acompanhamento"-->
     <string name="btnCallAARemedios">Abrir agenda de remédios.</string>
-    <string name="btnCallAACompromissos">Abrir agenda de compromissos.</string>
+    <string name="btnCallAADiario">Abrir diário.</string>
     <string name="btnCallAAExercicios">Abrir agenda de exercícios.</string>
     <!-- Falas de valores-->
-    <string name="speakZero">Zero.</string>
-    <string name="speakOne">Um.</string>
-    <string name="speakTwo">Dois.</string>
-    <string name="speakThree">Três.</string>
-    <string name="speakFour">Quatro.</string>
-    <string name="speakFive">Cinco.</string>
-    <string name="speakSix">Seis.</string>
-    <string name="speakSeven">Sete.</string>
-    <string name="speakEight">Oito.</string>
-    <string name="speakNine">Nove.</string>
+    <string name="speakZero">0.</string>
+    <string name="speakOne">1.</string>
+    <string name="speakTwo">2.</string>
+    <string name="speakThree">3.</string>
+    <string name="speakFour">4.</string>
+    <string name="speakFive">5.</string>
+    <string name="speakSix">6.</string>
+    <string name="speakSeven">7.</string>
+    <string name="speakEight">8.</string>
+    <string name="speakNine">9.</string>
     <string name="speakAsterisc">Asterisco.</string>
     <string name="speakSquare">Quadrado.</string>
 </resources>

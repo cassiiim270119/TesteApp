@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class CriaBanco extends SQLiteOpenHelper {
     private static final String NOME_BANCO = "banco.db";
     private static final String TABELAREMEDIOS = "remedios";
-    private static final String TABELACOMPROMISSOS = "compromissos";
+    private static final String TABELAATIVIDADES = "atividades";
     private static final String TABELAEXERCICIOS = "exercicios";
     private static final String ID = "id";
     private static final String TITULO = "titulo";
@@ -25,19 +25,19 @@ public class CriaBanco extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sqlremedios = "CREATE TABLE IF NOT EXISTS "+TABELAREMEDIOS+" ( "
-                + ID + " integer primary key autoincrement, "
+                + ID + " integer primary key, "
                 + TITULO + " VARCHAR(100), "
                 + HORARIO + " time "
                 +" );";
         db.execSQL(sqlremedios);
-       String sqlcompromissos = "CREATE TABLE IF NOT EXISTS "+TABELACOMPROMISSOS+" ( "
-                + ID + " integer primary key autoincrement, "
+       String sqlcompromissos = "CREATE TABLE IF NOT EXISTS "+TABELAATIVIDADES+" ( "
+                + ID + " integer primary key, "
                 + TITULO + " VARCHAR(100), "
                 + HORARIO + " time "
                 +" );";
         db.execSQL(sqlcompromissos);
         String sqlexercicios = "CREATE TABLE IF NOT EXISTS "+TABELAEXERCICIOS+" ( "
-                + ID + " integer primary key autoincrement, "
+                + ID + " integer primary key, "
                 + TITULO + " VARCHAR(100), "
                 + HORARIO + " time "
                 +" );";
@@ -47,7 +47,7 @@ public class CriaBanco extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS" + TABELAREMEDIOS);
-        db.execSQL("DROP TABLE IF EXISTS" + TABELACOMPROMISSOS);
+        db.execSQL("DROP TABLE IF EXISTS" + TABELAATIVIDADES);
         db.execSQL("DROP TABLE IF EXISTS" + TABELAEXERCICIOS);
         onCreate(db);
     }

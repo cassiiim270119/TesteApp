@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cassianomoura.testeapp.view.AADiarioActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnLerDiario"
+            android:onClick="readDiario"
+            android:text="Ler diário"
+            android:gravity="bottom"
+            android:textAlignment="center"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtTituloAADiario"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Diário"
+            android:textAlignment="center"
+            android:onClick="speechHelpDiario"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+        <ListView
+            android:id="@+id/listViewDiario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTituloAADiario"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="60dp"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>
