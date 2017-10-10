@@ -23,7 +23,9 @@
         </activity>
         <activity android:name=".view.EasyCallActivity" />
         <activity android:name=".view.AgendaAcompanhamentoActivity" />
-        <activity android:name=".view.AARemediosActivity"></activity>
+        <activity android:name=".view.AARemediosActivity" />
+        <activity android:name=".view.AACompromissosActivity" />
+        <activity android:name=".view.AAExerciciosActivity"></activity>
     </application>
 
 </manifest>

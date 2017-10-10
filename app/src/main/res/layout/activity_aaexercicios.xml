@@ -4,22 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cassianomoura.testeapp.view.AARemediosActivity"
-    android:orientation="vertical">
+    tools:context="com.example.cassianomoura.testeapp.view.AAExerciciosActivity">
 
     <TextView
-        android:id="@+id/txtTituloAARemedios"
+        android:id="@+id/txtTituloAAExercicios"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_weight="0.21"
-        android:text="Remédios"
+        android:text="Exercícios"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
     <ListView
-        android:id="@+id/listViewRemedios"
+        android:id="@+id/listViewExercicios"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/txtTituloAARemedios"
+        android:layout_below="@+id/txtTituloAAExercicios"
         android:layout_marginTop="92dp" />
 </RelativeLayout>

@@ -53,8 +53,7 @@ public class EasyCallActivity extends AppCompatActivity {
             @Override
             public void onInit(int status) {
                 if(status != TextToSpeech.ERROR) {
-                    Locale locale = new Locale("PT", "BR");
-                    tts.setLanguage(locale);
+                    tts.setLanguage(Locale.getDefault());
                 }
             }
         });

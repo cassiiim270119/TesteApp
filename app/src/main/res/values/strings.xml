@@ -10,7 +10,9 @@
     <string name="agendaAcompanhamentoStartSpeak">Aberta a agenda de acompanhamento.</string>
     <string name="jogosStartSpeak">Aberta a sessão de jogos.</string>
     <!-- Falas de recepção de cada tela terciária-->
-    <string name="aaremdiosStartSpeak">Aberta a agenda de remédios.</string>
+    <string name="aaremediosStartSpeak">Aberta a agenda de remédios.</string>
+    <string name="aacompromissosStartSpeak">Aberta a agenda de compromissos.</string>
+    <string name="aaexerciciosStartSpeak">Aberta a agenda de exercícios.</string>
     <!-- Falas da tela "Easy Call"-->
     <string name="btnFazerChamadaOnClick">Chamar.</string>
     <string name="btnFazerChamadaOnLongClick">Chamando.</string>

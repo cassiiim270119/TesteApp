@@ -31,8 +31,7 @@ public class AgendaAcompanhamentoActivity extends AppCompatActivity {
             @Override
             public void onInit(int status) {
                 if(status != TextToSpeech.ERROR) {
-                    Locale locale = new Locale("PT", "BR");
-                    tts.setLanguage(locale);
+                    tts.setLanguage(Locale.getDefault());
                 }
             }
         });
@@ -61,7 +60,7 @@ public class AgendaAcompanhamentoActivity extends AppCompatActivity {
         btnAACompromissos.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                //startAACompromissos();
+                startAACompromissos();
                 return true;
             }
         });
@@ -77,14 +76,26 @@ public class AgendaAcompanhamentoActivity extends AppCompatActivity {
         btnAAExercicios.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                //startAAExercicios();
+                startAAExercicios();
                 return true;
             }
         });
     }
     public void startAARemedios(){
-        tts.speak(getString(R.string.aaremdiosStartSpeak), TextToSpeech.QUEUE_FLUSH, null);
+        tts.speak(getString(R.string.aaremediosStartSpeak), TextToSpeech.QUEUE_FLUSH, null);
         Intent intent = new Intent(this, AARemediosActivity.class);
+        startActivity(intent);
+    }
+
+    public void startAACompromissos(){
+        tts.speak(getString(R.string.aacompromissosStartSpeak), TextToSpeech.QUEUE_FLUSH, null);
+        Intent intent = new Intent(this, AACompromissosActivity.class);
+        startActivity(intent);
+    }
+
+    public void startAAExercicios(){
+        tts.speak(getString(R.string.aaexerciciosStartSpeak), TextToSpeech.QUEUE_FLUSH, null);
+        Intent intent = new Intent(this, AAExerciciosActivity.class);
         startActivity(intent);
     }
 

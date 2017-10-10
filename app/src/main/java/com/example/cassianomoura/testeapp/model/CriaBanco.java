@@ -24,21 +24,21 @@ public class CriaBanco extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sqlremedios = "CREATE TABLE "+TABELAREMEDIOS+" ( "
+        String sqlremedios = "CREATE TABLE IF NOT EXISTS "+TABELAREMEDIOS+" ( "
                 + ID + " integer primary key autoincrement, "
-                + TITULO + " text, "
+                + TITULO + " VARCHAR(100), "
                 + HORARIO + " time "
                 +" );";
         db.execSQL(sqlremedios);
-        String sqlcompromissos = "CREATE TABLE "+TABELACOMPROMISSOS+" ( "
+       String sqlcompromissos = "CREATE TABLE IF NOT EXISTS "+TABELACOMPROMISSOS+" ( "
                 + ID + " integer primary key autoincrement, "
-                + TITULO + " text, "
+                + TITULO + " VARCHAR(100), "
                 + HORARIO + " time "
                 +" );";
         db.execSQL(sqlcompromissos);
-        String sqlexercicios = "CREATE TABLE "+TABELAEXERCICIOS+" ( "
+        String sqlexercicios = "CREATE TABLE IF NOT EXISTS "+TABELAEXERCICIOS+" ( "
                 + ID + " integer primary key autoincrement, "
-                + TITULO + " text, "
+                + TITULO + " VARCHAR(100), "
                 + HORARIO + " time "
                 +" );";
         db.execSQL(sqlexercicios);
@@ -47,6 +47,8 @@ public class CriaBanco extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS" + TABELAREMEDIOS);
+        db.execSQL("DROP TABLE IF EXISTS" + TABELACOMPROMISSOS);
+        db.execSQL("DROP TABLE IF EXISTS" + TABELAEXERCICIOS);
         onCreate(db);
     }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cassianomoura.testeapp.view.AACompromissosActivity">
+
+    <TextView
+        android:id="@+id/txtTituloAACompromissos"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Compromissos"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <ListView
+        android:id="@+id/listViewCompromissos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTituloAARemedios"
+        android:layout_marginTop="60dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGravarCompromissoTitulo"
+        android:onClick="speechTitulo"
+        android:layout_below="@+id/listViewCompromissos"
+        android:text="Fale o compromisso"
+        android:textAlignment="center"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGravarCompromissoHorario"
+        android:onClick="speechHorario"
+        android:layout_below="@+id/btnGravarCompromissoTitulo"
+        android:text="Fale o horário"
+        android:textAlignment="center"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGravarCompromissoConfirm"
+        android:onClick="speechConfirmIncludeCompromisso"
+        android:layout_below="@+id/btnGravarCompromissoHorario"
+        android:text="Confirmar"
+        android:textAlignment="center"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLerCompromisso"
+        android:onClick="readCompromissos"
+        android:layout_below="@+id/btnGravarCompromissoConfirm"
+        android:text="Ler compromissos"
+        android:textAlignment="center"/>
+</RelativeLayout>
