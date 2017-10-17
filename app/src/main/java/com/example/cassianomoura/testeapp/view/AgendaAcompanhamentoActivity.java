@@ -17,16 +17,18 @@ import com.example.cassianomoura.testeapp.R;
 import java.util.Locale;
 
 public class AgendaAcompanhamentoActivity extends AppCompatActivity {
-
-    TextToSpeech tts;
+    private Button btnAARemedios;
+    private Button btnAACompromissos;
+    private Button btnAAExercicios;
+    private TextToSpeech tts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda_acompanhamento);
 
-        Button btnAARemedios = (Button) findViewById(R.id.btnAARemedios);
-        Button btnAACompromissos = (Button) findViewById(R.id.btnAADiario);
-        Button btnAAExercicios = (Button) findViewById(R.id.btnAAExercicios);
+        btnAARemedios = (Button) findViewById(R.id.btnAARemedios);
+        btnAACompromissos = (Button) findViewById(R.id.btnAADiario);
+        btnAAExercicios = (Button) findViewById(R.id.btnAAExercicios);
         tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {

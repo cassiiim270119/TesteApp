@@ -20,7 +20,7 @@ import com.example.cassianomoura.testeapp.R;
 import java.util.Locale;
 
 public class EasyCallActivity extends AppCompatActivity {
-    TextToSpeech tts;
+    private TextToSpeech tts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
