@@ -15,8 +15,18 @@
             android:id="@+id/btnLerDiario"
             android:onClick="readDiario"
             android:text="Ler diário"
-            android:gravity="bottom"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSalvarAtividade"
+            android:onClick="newAtividade"
+            android:text="Salvar atividade"
+            android:textAlignment="center"
+            android:layout_below="@+id/btnLerDiario"
+            />
 
     </RelativeLayout>
     <LinearLayout

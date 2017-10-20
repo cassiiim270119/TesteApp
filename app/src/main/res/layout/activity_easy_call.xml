@@ -9,13 +9,11 @@
     android:orientation="vertical">
 
 
-    <EditText
+    <TextView
         android:id="@+id/txtPhone"
         android:layout_width="368dp"
         android:layout_height="65dp"
-        android:editable="false"
         android:ems="10"
-        android:enabled="false"
         android:inputType="phone"
         android:text=""
         android:textAlignment="center"

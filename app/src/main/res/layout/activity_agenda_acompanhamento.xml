@@ -26,7 +26,7 @@
         android:backgroundTint="#D50000"
         android:text="Remédios"
         android:textAlignment="center"
-        android:textColor="#e8d800"
+        android:textColor="#FFFF00"
         android:textSize="40dp" />
 
     <Button
@@ -39,7 +39,7 @@
         android:backgroundTint="#0D47A1"
         android:text="Diário"
         android:textAlignment="center"
-        android:textColor="#fff"
+        android:textColor="#FFF"
         android:textSize="40dp"/>
 
     <Button
