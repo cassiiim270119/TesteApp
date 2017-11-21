@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.cassianomoura.testeapp.R;
-import com.example.cassianomoura.testeapp.control.RepositorioDiario;
+import com.example.cassianomoura.testeapp.control.RepositorioRemedios;
 import com.example.cassianomoura.testeapp.model.Banco;
 
 import java.util.ArrayList;
@@ -22,23 +22,21 @@ import java.util.Locale;
 
 import static android.widget.Toast.LENGTH_LONG;
 
-public class GravarAtividadeActivity extends AppCompatActivity {
-
+public class GravarRemedioActivity extends AppCompatActivity {
     private Banco banco;
     private SQLiteDatabase conexao;
     private static Context context;
-    private Button btnGravarAtividadeConfirm;
-    private EditText txtTituloAtividade;
-    private EditText txtHorarioAtividade;
+    private Button btnConfirmarRemedio;
+    private EditText txtTituloRemedio;
+    private EditText txtHorarioRemedio;
     private TextToSpeech tts;
-    private RepositorioDiario repositorioDiario;
+    private RepositorioRemedios repositorioRemedios;
     private static String parametroAtual;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gravar_atividade);
+        setContentView(R.layout.activity_gravar_remedio);
         tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -49,27 +47,27 @@ public class GravarAtividadeActivity extends AppCompatActivity {
         });
         context = getApplicationContext();
         testarConexao();
-        txtTituloAtividade = (EditText) findViewById(R.id.txtTituloAtividade);
-        txtHorarioAtividade = (EditText) findViewById(R.id.txtHorarioAtividade);
-        btnGravarAtividadeConfirm = (Button)findViewById(R.id.btnConfirmarAtividade);
-        txtTituloAtividade.setOnLongClickListener(new View.OnLongClickListener() {
+        txtTituloRemedio = (EditText) findViewById(R.id.txtTituloRemedio);
+        txtHorarioRemedio = (EditText) findViewById(R.id.txtHorarioRemedio);
+        btnConfirmarRemedio = (Button)findViewById(R.id.btnConfirmarRemedio);
+        txtTituloRemedio.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 getSpeechTitulo();
                 return true;
             }
         });
-        txtHorarioAtividade.setOnLongClickListener(new View.OnLongClickListener() {
+        txtHorarioRemedio.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 getSpeechHorario();
                 return true;
             }
         });
-        btnGravarAtividadeConfirm.setOnLongClickListener(new View.OnLongClickListener() {
+        btnConfirmarRemedio.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                confirmIncludeDiario();
+                confirmIncludeRemedio();
                 return true;
             }
         });
@@ -79,14 +77,14 @@ public class GravarAtividadeActivity extends AppCompatActivity {
             banco = new Banco(this);
             conexao = banco.getWritableDatabase();
             Toast.makeText(context, "Conexão criada com sucesso!", LENGTH_LONG).show();
-            repositorioDiario = new RepositorioDiario(conexao);
+            repositorioRemedios = new RepositorioRemedios(conexao);
         }catch (SQLException e){
             Toast.makeText(context, e.getMessage(), LENGTH_LONG).show();
         }
     }
 
     public void speechTitulo(View view) {
-        tts.speak("Falar a atvidade.", TextToSpeech.QUEUE_ADD, null);
+        tts.speak("Falar o remédio.", TextToSpeech.QUEUE_ADD, null);
     }
     public void getSpeechTitulo(){
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -101,7 +99,7 @@ public class GravarAtividadeActivity extends AppCompatActivity {
     }
 
     public void speechHorario(View view){
-        tts.speak("Falar o horário da atividade.", TextToSpeech.QUEUE_ADD, null);
+        tts.speak("Falar o horário do remédio.", TextToSpeech.QUEUE_ADD, null);
     }
     public void getSpeechHorario(){
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -115,18 +113,18 @@ public class GravarAtividadeActivity extends AppCompatActivity {
         }
     }
 
-    public void speechConfirmIncludeDiario(View view){
-        tts.speak("Armazenar atividade.", TextToSpeech.QUEUE_FLUSH, null);
+    public void speechConfirmIncludeRemedios(View view){
+        tts.speak("Armazenar remédio.", TextToSpeech.QUEUE_FLUSH, null);
     }
-    public void confirmIncludeDiario(){
-        long idInserido = repositorioDiario.insertAtividade(txtTituloAtividade.getText().toString(), txtHorarioAtividade.getText().toString());
+    public void confirmIncludeRemedio(){
+        long idInserido = repositorioRemedios.insertRemedio(txtTituloRemedio.getText().toString(), txtHorarioRemedio.getText().toString());
         if (idInserido > 0){
-            tts.speak("Atividade: " + txtTituloAtividade.getText().toString() + " às " +  txtHorarioAtividade.getText().toString() + " armazenada com o identificador: " + idInserido + ".", TextToSpeech.QUEUE_FLUSH, null);
+            tts.speak("Remédio: " + txtTituloRemedio.getText().toString() + " às " +  txtHorarioRemedio.getText().toString() + " armazenado com o identificador: " + idInserido + ".", TextToSpeech.QUEUE_FLUSH, null);
         }
-        startAADiario();
+        startAARemedios();
     }
-    public void startAADiario(){
-        Intent intent = new Intent(this, AADiarioActivity.class);
+    public void startAARemedios(){
+        Intent intent = new Intent(this, AARemediosActivity.class);
         startActivity(intent);
     }
 
@@ -139,13 +137,13 @@ public class GravarAtividadeActivity extends AppCompatActivity {
                     ArrayList<String> resultado = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     if (parametroAtual.equals("titulo")) {
                         tts.speak("Eu entendi: "+resultado.get(0)+".", TextToSpeech.QUEUE_FLUSH, null);
-                        txtTituloAtividade.setText(resultado.get(0));
+                        txtTituloRemedio.setText(resultado.get(0));
                     }else if (parametroAtual.equals("horario")){
                         tts.speak("Eu entendi: "+resultado.get(0)+".", TextToSpeech.QUEUE_FLUSH, null);
                         if (resultado.get(0).contains("horas")){
-                            txtHorarioAtividade.setText(resultado.get(0).split(" horas")[0]+":00");
+                            txtHorarioRemedio.setText(resultado.get(0).split(" horas")[0]+":00");
                         }else{
-                            txtHorarioAtividade.setText(resultado.get(0));
+                            txtHorarioRemedio.setText(resultado.get(0));
                         }
                     }
                 }

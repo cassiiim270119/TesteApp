@@ -9,16 +9,41 @@
     <TextView
         android:id="@+id/txtTituloAAExercicios"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="0.21"
+        android:layout_height="55dp"
         android:text="Exercícios"
         android:textAlignment="center"
+        android:onClick="speechHelpExercicios"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/btnLerExercicios"
+            android:onClick="readExerciciosSpeech"
+            android:text="Ler exercícios"
+            android:textAlignment="center"
+            android:backgroundTint="#0D47A1"
+            android:textColor="#FFFFFF"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/btnSalvarExercicio"
+            android:onClick="newExercicioSpeech"
+            android:text="Salvar exercício"
+            android:textAlignment="center"
+            android:layout_below="@+id/btnLerExercicios"
+            android:backgroundTint="#004D40"
+            android:textColor="#A7FFEB"/>
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/listViewExercicios"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/txtTituloAAExercicios"
-        android:layout_marginTop="92dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="60dp"/>
 </RelativeLayout>

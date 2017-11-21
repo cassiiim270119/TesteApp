@@ -17,12 +17,17 @@ public class RepositorioExercicios {
         this.conexao = conexao;
     }
 
-    public void inserirExerciciosTeste(){
+    public long insertExercicio(String titulo, String horario){
         ContentValues contentValues = new ContentValues();
-        contentValues.put("titulo","Caminhada");
-        contentValues.put("horario", "19:00");
-        conexao.insertOrThrow("exercicios", null, contentValues);
+        contentValues.put("titulo",titulo);
+        contentValues.put("horario", horario);
+        return conexao.insertOrThrow("exercicios", null, contentValues);
+    }
 
+    public int excluirExercicio(int id){
+        String[] parametros = new String[1];
+        parametros[0] = String.valueOf(id);
+        return conexao.delete("exercicios", "id = ?", parametros);
     }
 
     public ArrayAdapter<String> buscaExercicios(Context context){
@@ -33,7 +38,8 @@ public class RepositorioExercicios {
             do {
                 String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
                 String horario = cursor.getString(cursor.getColumnIndexOrThrow("horario"));
-                arrayAdapterExercicios.add(titulo+" - "+horario);
+                String id = cursor.getString(cursor.getColumnIndexOrThrow("id"));
+                arrayAdapterExercicios.add(id + ": "+titulo+" - "+horario);
             }while (cursor.moveToNext());
         }
         return arrayAdapterExercicios;

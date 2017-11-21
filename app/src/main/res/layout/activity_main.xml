@@ -42,16 +42,5 @@
         android:foregroundGravity="center"
         android:foregroundTintMode="screen" />
 
-    <Button
-        android:id="@+id/btn_DuhuMath"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="0.21"
-        android:backgroundTint="#795548"
-        android:focusableInTouchMode="false"
-        android:focusedByDefault="false"
-        android:foreground="@android:drawable/ic_menu_edit"
-        android:foregroundGravity="center" />
+
 </LinearLayout>

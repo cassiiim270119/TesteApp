@@ -4,8 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.speech.RecognizerIntent;
@@ -15,32 +13,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.cassianomoura.testeapp.R;
-import com.example.cassianomoura.testeapp.model.CriaBanco;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-import static android.widget.Toast.LENGTH_LONG;
-
-
 public class MainActivity extends AppCompatActivity {
     private Button btnEasyCall;
     private Button btnIMC;
-    private Button btnDuhuMath;
     private TextToSpeech tts;
     private TextView txtTituloMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         txtTituloMain = (TextView) findViewById(R.id.txtTituloMain);
         btnEasyCall = (Button) findViewById(R.id.btn_EasyCall);
         btnIMC = (Button) findViewById(R.id.btn_IMC);
-        btnDuhuMath = (Button) findViewById(R.id.btn_DuhuMath);
         tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -67,13 +57,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 vibrate(2);
                 tts.speak(getString(R.string.btnAgendaAcompanhamentoSpeak), TextToSpeech.QUEUE_FLUSH, null);
-            }
-        });
-
-        btnDuhuMath.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                vibrate(3);
-                tts.speak(getString(R.string.btnJogosSpeak), TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
@@ -141,8 +124,6 @@ public class MainActivity extends AppCompatActivity {
                         startEasyCall();
                     }else if (resultado.get(0).equalsIgnoreCase("abrir agenda de acompanhamento")){
                         startAgendaDeAcompanhamento();
-                    }else if (resultado.get(0).equalsIgnoreCase("abrir sessão de jogos")){
-                        tts.speak("Desculpe, função ainda indisponível!", TextToSpeech.QUEUE_FLUSH, null);
                     }else {
                         tts.speak("Desculpe, não reconheci o que você disse como uma função. Tente novamente.", TextToSpeech.QUEUE_FLUSH, null);
                     }

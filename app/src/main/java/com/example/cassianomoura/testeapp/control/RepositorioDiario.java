@@ -17,28 +17,17 @@ public class RepositorioDiario {
         this.conexao = conexao;
     }
 
-    public void inserirAtividadeTeste(){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("titulo","Reunião escolar do júnior");
-        contentValues.put("horario", "19:00");
-        conexao.insertOrThrow("compromissos", null, contentValues);
-
-    }
-
     public long insertAtividade(String titulo, String horario){
-        Cursor cursor = conexao.rawQuery("SELECT * FROM atividades", null);
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id",cursor.getCount()+1);
         contentValues.put("titulo",titulo);
         contentValues.put("horario", horario);
         return conexao.insertOrThrow("atividades", null, contentValues);
     }
 
-    public void excluirAtividade(int codigo){
+    public int excluirAtividade(int id){
         String[] parametros = new String[1];
-        parametros[0] = String.valueOf(codigo);
-        conexao.delete("atividades", "id = ?", parametros);
-        //conexao.delete("compromissos", null, null);
+        parametros[0] = String.valueOf(id);
+        return conexao.delete("atividades", "id = ?", parametros);
     }
 
     public ArrayAdapter<String> buscaDiario(Context context){

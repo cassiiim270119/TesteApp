@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.cassianomoura.testeapp.view.GravarAtividadeActivity"
+    tools:context="com.example.cassianomoura.testeapp.view.GravarRemedioActivity"
     android:weightSum="1">
-
-
     <TextView
-        android:id="@+id/txtTituloGravarAtividade"
+        android:id="@+id/txtTituloGravarRemedio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salvar       atividade"
+        android:text="Salvar         remédio"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
@@ -20,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:hint="Digite a atividade"
-        android:id="@+id/txtTituloAtividade"
+        android:hint="Digite o remédio"
+        android:id="@+id/txtTituloRemedio"
         android:textColor="#000000"
         android:onClick="speechTitulo"/>
 
@@ -30,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:hint="Digite o horário"
-        android:id="@+id/txtHorarioAtividade"
+        android:id="@+id/txtHorarioRemedio"
         android:textColor="#000000"
         android:onClick="speechHorario"
         android:inputType="time"/>
@@ -39,13 +38,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:id="@+id/btnConfirmarAtividade"
-        android:onClick="speechConfirmIncludeRemedio"
-        android:layout_below="@+id/listViewDiario"
+        android:id="@+id/btnConfirmarRemedio"
+        android:onClick="speechConfirmIncludeRemedios"
+        android:layout_below="@+id/listViewRemedios"
         android:text="Confirmar"
         android:textAlignment="center"
         android:backgroundTint="#00C853"
         android:layout_weight="0.21"
         android:layout_marginBottom="20dp"
         android:textSize="40dp"/>
+
 </LinearLayout>

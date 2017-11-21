@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,12 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".control.AlarmReceiverExercicios" />
         <activity android:name=".view.EasyCallActivity" />
         <activity android:name=".view.AgendaAcompanhamentoActivity" />
         <activity android:name=".view.AARemediosActivity" />
         <activity android:name=".view.AADiarioActivity" />
         <activity android:name=".view.AAExerciciosActivity" />
-        <activity android:name=".view.GravarAtividadeActivity"></activity>
+        <activity android:name=".view.GravarAtividadeActivity" />
+        <activity android:name=".view.GravarRemedioActivity" />
+        <activity android:name=".view.GravarExercicioActivity"></activity>
     </application>
 
 </manifest>

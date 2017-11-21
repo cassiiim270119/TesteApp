@@ -10,16 +10,41 @@
     <TextView
         android:id="@+id/txtTituloAARemedios"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="0.21"
+        android:layout_height="55dp"
         android:text="Remédios"
         android:textAlignment="center"
+        android:onClick="speechHelpRemedios"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/btnLerRemedios"
+            android:onClick="readRemediosSpeech"
+            android:text="Ler remédios"
+            android:textAlignment="center"
+            android:backgroundTint="#0D47A1"
+            android:textColor="#FFFFFF"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/btnSalvarRemedio"
+            android:onClick="newRemedioSpeech"
+            android:text="Salvar remédio"
+            android:textAlignment="center"
+            android:layout_below="@+id/btnLerRemedios"
+            android:backgroundTint="#004D40"
+            android:textColor="#A7FFEB"/>
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/listViewRemedios"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/txtTituloAARemedios"
-        android:layout_marginTop="92dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="60dp"/>
 </RelativeLayout>

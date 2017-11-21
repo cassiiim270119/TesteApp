@@ -11,19 +11,21 @@ import android.widget.ArrayAdapter;
  */
 
 public class RepositorioRemedios {
-
     private SQLiteDatabase conexao;
 
-    public RepositorioRemedios(SQLiteDatabase conexao){
-        this.conexao = conexao;
+    public RepositorioRemedios(SQLiteDatabase conexao){this.conexao = conexao;  }
+
+    public long insertRemedio(String titulo, String horario){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("titulo",titulo);
+        contentValues.put("horario", horario);
+        return conexao.insertOrThrow("remedios", null, contentValues);
     }
 
-    public void inserirRemediosTeste(){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("titulo","Cimelide");
-        contentValues.put("horario", "22:45");
-        conexao.insertOrThrow("remedios", null, contentValues);
-
+    public int excluirRemedio(int id){
+        String[] parametros = new String[1];
+        parametros[0] = String.valueOf(id);
+        return conexao.delete("remedios", "id = ?", parametros);
     }
 
     public ArrayAdapter<String> buscaRemedios(Context context){
@@ -34,7 +36,8 @@ public class RepositorioRemedios {
             do {
                 String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
                 String horario = cursor.getString(cursor.getColumnIndexOrThrow("horario"));
-                arrayAdapterRemedios.add(titulo+" - "+horario);
+                String id = cursor.getString(cursor.getColumnIndexOrThrow("id"));
+                arrayAdapterRemedios.add(id + ": "+titulo+" - "+horario);
             }while (cursor.moveToNext());
         }
         return arrayAdapterRemedios;
