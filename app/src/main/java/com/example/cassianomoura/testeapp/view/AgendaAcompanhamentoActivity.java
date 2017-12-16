@@ -27,7 +27,7 @@ public class AgendaAcompanhamentoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_agenda_acompanhamento);
 
         btnAARemedios = (Button) findViewById(R.id.btnAARemedios);
-        btnAACompromissos = (Button) findViewById(R.id.btnAADiario);
+        //btnAACompromissos = (Button) findViewById(R.id.btnAADiario);
         btnAAExercicios = (Button) findViewById(R.id.btnAAExercicios);
         tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
@@ -45,12 +45,12 @@ public class AgendaAcompanhamentoActivity extends AppCompatActivity {
             }
         });
 
-        btnAACompromissos.setOnClickListener(new View.OnClickListener() {
+        /*btnAACompromissos.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 vibrate(2);
                 tts.speak(getString(R.string.btnCallAADiario), TextToSpeech.QUEUE_FLUSH, null);
             }
-        });
+        });*/
 
         btnAAExercicios.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -59,13 +59,13 @@ public class AgendaAcompanhamentoActivity extends AppCompatActivity {
             }
         });
 
-        btnAACompromissos.setOnLongClickListener(new View.OnLongClickListener() {
+        /*btnAACompromissos.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 startAADiario();
                 return true;
             }
-        });
+        });*/
 
         btnAARemedios.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

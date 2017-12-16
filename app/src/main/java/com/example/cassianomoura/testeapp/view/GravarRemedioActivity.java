@@ -1,5 +1,7 @@
 package com.example.cassianomoura.testeapp.view;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.SQLException;
@@ -14,10 +16,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.cassianomoura.testeapp.R;
+import com.example.cassianomoura.testeapp.control.AlarmReceiverExercicios;
+import com.example.cassianomoura.testeapp.control.AlarmReceiverRemedios;
 import com.example.cassianomoura.testeapp.control.RepositorioRemedios;
 import com.example.cassianomoura.testeapp.model.Banco;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import static android.widget.Toast.LENGTH_LONG;
@@ -67,7 +75,80 @@ public class GravarRemedioActivity extends AppCompatActivity {
         btnConfirmarRemedio.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                confirmIncludeRemedio();
+                Calendar agora = Calendar.getInstance();
+                String diaHoje = String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+                String mesHoje = String.valueOf(Calendar.getInstance().get(Calendar.MONTH)+1);
+                String anoHoje = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+                String horasAlarme = txtHorarioRemedio.getText().toString().split(":")[0];
+                String minutosAlarme = txtHorarioRemedio.getText().toString().split(":")[1];
+                String myDate = anoHoje + "/" + mesHoje + "/" + diaHoje + " " + horasAlarme + ":" + minutosAlarme + ":00";
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                Date date = null;
+                try {
+                    date = sdf.parse(myDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                long millisAlarme = date.getTime();
+                if (millisAlarme < agora.getTimeInMillis()){
+                    if ((Integer.parseInt(mesHoje)==1)||(Integer.parseInt(mesHoje)==3)||(Integer.parseInt(mesHoje)==5)||
+                            (Integer.parseInt(mesHoje)==7)||(Integer.parseInt(mesHoje)==8)||
+                            (Integer.parseInt(mesHoje)==10)||(Integer.parseInt(mesHoje)==12)){
+                        if (Integer.parseInt(diaHoje) < 31){
+                            diaHoje = String.valueOf(Integer.parseInt(diaHoje)+1);
+                        }else{
+                            if (Integer.parseInt(mesHoje)<12){
+                                mesHoje = String.valueOf(Integer.parseInt(mesHoje)+1);
+                            }else{
+                                anoHoje = String.valueOf(Integer.parseInt(anoHoje)+1);
+                                mesHoje = "1";
+                            }
+                            diaHoje = "1";
+                        }
+                    }else if (Integer.parseInt(mesHoje)==2){
+                        if (Integer.parseInt(diaHoje) < 28){
+                            diaHoje = String.valueOf(Integer.parseInt(diaHoje)+1);
+                        }else{
+                            if (Integer.parseInt(mesHoje)<12){
+                                mesHoje = String.valueOf(Integer.parseInt(mesHoje)+1);
+                            }else{
+                                anoHoje = String.valueOf(Integer.parseInt(anoHoje)+1);
+                                mesHoje = "1";
+                            }
+                            diaHoje = "1";
+                        }
+                    }else{
+                        if (Integer.parseInt(diaHoje) < 30){
+                            diaHoje = String.valueOf(Integer.parseInt(diaHoje)+1);
+                        }else{
+                            if (Integer.parseInt(mesHoje)<12){
+                                mesHoje = String.valueOf(Integer.parseInt(mesHoje)+1);
+                            }else{
+                                anoHoje = String.valueOf(Integer.parseInt(anoHoje)+1);
+                                mesHoje = "1";
+                            }
+                            diaHoje = "1";
+                        }
+                    }
+                    myDate = anoHoje + "/" + mesHoje + "/" + diaHoje + " " + horasAlarme + ":" + minutosAlarme + ":00";
+                    sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                    try {
+                        date = sdf.parse(myDate);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    millisAlarme = date.getTime();
+                }
+                long idInserido = confirmIncludeRemedio();
+                String concatenarId = "100" + String.valueOf(idInserido);
+                long intervaloMillisecs = 86400000;
+                Intent intentAlarm = new Intent(GravarRemedioActivity.this, AlarmReceiverRemedios.class);
+                intentAlarm.putExtra("idInserido", Integer.parseInt(concatenarId));
+                intentAlarm.putExtra("tituloInserido", txtTituloRemedio.getText().toString());
+                intentAlarm.putExtra("horarioInserido", txtHorarioRemedio.getText().toString());
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(context, Integer.parseInt(concatenarId), intentAlarm, 0);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, millisAlarme, intervaloMillisecs, pendingIntent);
                 return true;
             }
         });
@@ -116,12 +197,13 @@ public class GravarRemedioActivity extends AppCompatActivity {
     public void speechConfirmIncludeRemedios(View view){
         tts.speak("Armazenar remédio.", TextToSpeech.QUEUE_FLUSH, null);
     }
-    public void confirmIncludeRemedio(){
+    public long confirmIncludeRemedio(){
         long idInserido = repositorioRemedios.insertRemedio(txtTituloRemedio.getText().toString(), txtHorarioRemedio.getText().toString());
         if (idInserido > 0){
             tts.speak("Remédio: " + txtTituloRemedio.getText().toString() + " às " +  txtHorarioRemedio.getText().toString() + " armazenado com o identificador: " + idInserido + ".", TextToSpeech.QUEUE_FLUSH, null);
         }
         startAARemedios();
+        return idInserido;
     }
     public void startAARemedios(){
         Intent intent = new Intent(this, AARemediosActivity.class);

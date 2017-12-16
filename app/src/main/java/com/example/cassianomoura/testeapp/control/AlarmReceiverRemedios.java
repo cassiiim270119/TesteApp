@@ -16,13 +16,11 @@ import com.example.cassianomoura.testeapp.view.AgendaAcompanhamentoActivity;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
-
 /**
- * Created by Cassiano Moura on 13/11/2017.
+ * Created by Cassiano Moura on 16/12/2017.
  */
 
-public class AlarmReceiverExercicios extends BroadcastReceiver {
-
+public class AlarmReceiverRemedios extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         long id = intent.getLongExtra("idInserido", 1);
@@ -37,7 +35,7 @@ public class AlarmReceiverExercicios extends BroadcastReceiver {
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context);
         notificationBuilder.setTicker(titulo);
-        notificationBuilder.setContentTitle("Exercício agora");
+        notificationBuilder.setContentTitle("Remédio agora");
         notificationBuilder.setContentText(titulo + " marcado para " + horario);
         notificationBuilder.setSmallIcon(R.mipmap.ic_launcher);
         notificationBuilder.setContentIntent(pendingIntent);

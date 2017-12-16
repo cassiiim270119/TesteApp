@@ -1,5 +1,7 @@
 package com.example.cassianomoura.testeapp.view;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.SQLException;
@@ -16,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.cassianomoura.testeapp.R;
+import com.example.cassianomoura.testeapp.control.AlarmReceiverExercicios;
 import com.example.cassianomoura.testeapp.control.RepositorioRemedios;
 import com.example.cassianomoura.testeapp.model.Banco;
 
@@ -92,6 +95,11 @@ public class AARemediosActivity extends AppCompatActivity {
                 String idARemover = adapterView.getItemAtPosition(i).toString().split(": ")[0];
                 String remedioRemovido = adapterView.getItemAtPosition(i).toString().split(": ")[1];
                 if (repositorioRemedios.excluirRemedio(Integer.parseInt(idARemover)) > 0){
+                    String concatenarId = "100" + String.valueOf(idARemover);
+                    Intent intentAlarm = new Intent(AARemediosActivity.this, AlarmReceiverExercicios.class);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, Integer.parseInt(concatenarId), intentAlarm, 0);
+                    AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                    alarmManager.cancel(pendingIntent);
                     tts.speak("Removido o remédio "+remedioRemovido+".",TextToSpeech.QUEUE_FLUSH, null);
                     startAARemedios();
                 }

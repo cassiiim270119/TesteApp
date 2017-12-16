@@ -23,24 +23,11 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:layout_weight="0.21"
-        android:backgroundTint="#D50000"
+        android:backgroundTint="#0D47A1"
         android:text="Remédios"
         android:textAlignment="center"
-        android:textColor="#FFFF00"
-        android:textSize="40dp" />
-
-    <Button
-        android:id="@+id/btnAADiario"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="0.21"
-        android:backgroundTint="#0D47A1"
-        android:text="Diário"
-        android:textAlignment="center"
         android:textColor="#FFF"
-        android:textSize="40dp"/>
+        android:textSize="40dp" />
 
     <Button
         android:id="@+id/btnAAExercicios"

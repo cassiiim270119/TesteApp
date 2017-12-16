@@ -142,7 +142,7 @@ public class GravarExercicioActivity extends AppCompatActivity {
                 }
                 long idInserido = confirmIncludeExercicios();
                 String concatenarId = "100" + String.valueOf(idInserido);
-                long intervaloMillisecs = 120000;
+                long intervaloMillisecs = 86400000;
                 Intent intentAlarm = new Intent(GravarExercicioActivity.this, AlarmReceiverExercicios.class);
                 intentAlarm.putExtra("idInserido", Integer.parseInt(concatenarId));
                 intentAlarm.putExtra("tituloInserido", txtTituloExercicio.getText().toString());
